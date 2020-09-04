@@ -12,7 +12,9 @@ app.use((ctx, next) => {
     ctx.status = 401; // Unauthorized
     return;
   }
-  next();
+  next().then(() => {
+    console.log('END');
+  });
 });
 
 
@@ -30,6 +32,6 @@ app.use(ctx => {
 
 
 
-app.listen(4001, () => {
-  console.log('Listening to port 4001');
+app.listen(4000, () => {
+  console.log('Listening to port 4000');
 });
